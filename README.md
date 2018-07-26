@@ -1,6 +1,6 @@
 # Sementic Annotator
 
-This is a python script to be used with [VGG image annotator](www.robots.ox.ac.uk/~vgg/software/via/) in order to generate masks(ground truth) for sementic segmentation.
+This is a python script to be used with [VGG image annotator](http://www.robots.ox.ac.uk/~vgg/software/via/) in order to generate masks(ground truth) for sementic segmentation.
 
 #### Dependencies
   - pandas

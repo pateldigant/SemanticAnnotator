@@ -67,7 +67,7 @@ for filename in filenames:
         list_of_points = data[key]
         for points in list_of_points:
             pts = np.array(points)
-            cv2.fillConvexPoly(mask, [pts], color=colors[key])
+            cv2.fillPoly(mask, [pts], color=colors[key])
     cv2.imwrite(""+ output_path + '/' + filename.split('.')[0] +'_mask'+'.jpg', mask)
     
     df = df[df['filename']!=filename]

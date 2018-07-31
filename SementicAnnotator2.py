@@ -26,7 +26,15 @@ for filename in filenames:
     temp_df = df.loc[df['filename'] == filename]
     
     data = {}
-    colors = [(0,0,255),(0,255,0),(255,0,0),(0,255,255)]
+    #the colors are in bgr format .... key = class eg 1 for grass , 2 for mud ,etc.
+    colors = {
+        "1": (0,0,255),
+        "2": (0,255,0),
+        "3": (255,0,0),
+        "4": (0,255,255),
+        "5": (255,255,0),
+        "6": (255,0,255)
+        }
     
     for index, row in temp_df.iterrows():
         polygon_string = row["region_shape_attributes"]
@@ -59,7 +67,7 @@ for filename in filenames:
         list_of_points = data[key]
         for points in list_of_points:
             pts = np.array(points)
-            cv2.fillConvexPoly(mask, pts, color=colors[index])
+            cv2.fillConvexPoly(mask, [pts], color=colors[key])
     cv2.imwrite(""+ output_path + '/' + filename.split('.')[0] +'_mask'+'.jpg', mask)
     
     df = df[df['filename']!=filename]
